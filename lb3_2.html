@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>lb3_2</title>
+</head>
+<body>
+    <div class="point">
+        <span id="point-text"></span>
+    </div>
+    <div class="Key">
+        <span id="key-text"></span>
+    </div>
+    <script>
+        let pointText = document.getElementById("point-text");
+        let keyText = document.getElementById("key-text");
+
+        window.onmousemove = (e) =>
+        {
+            pointText.innerHTML = "x:" + e.clientX + " y:" + e.clientY;
+        }
+
+        window.onkeydown = (e) => 
+        {
+            keyText.innerHTML = "key code:" + e.keyCode;
+        }
+    </script>
+</body>
+</html>

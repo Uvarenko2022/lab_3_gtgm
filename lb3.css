@@ -1,0 +1,83 @@
+html {
+    height: 100%;
+}
+
+
+body {
+    min-height: 150%;
+}
+
+
+.image {
+    height: 100px;
+    width: auto;
+    position: absolute;
+}
+
+.hint {
+    display: inline-block;
+}
+
+.hint-head {
+    display: inline-block;
+    background-color: black;
+    height: 20px;
+    width: 50px;
+}
+.hint-body {
+    visibility: collapse;
+    display: inline-block;
+}
+
+.tooltip {
+    position: fixed;
+    padding: 10px 20px;
+    border: 1px solid #b3c9ce;
+    border-radius: 4px;
+    text-align: center;
+    color: #333;
+    background: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+
+.colors {
+    position: fixed;
+    bottom: 0;
+}
+
+.rect {
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    width: 20px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.black {
+    background-color: black;
+}
+
+.rightrect {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}

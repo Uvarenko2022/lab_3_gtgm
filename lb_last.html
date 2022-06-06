@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>last</title>
+</head>
+<style>
+    .container {
+        position: absolute;
+        left: 250px;
+        top: 50px;
+    }
+
+    .notes {
+        max-width: 170px;
+        width: 170px;
+        border: 1px solid black;
+    }
+
+    .input {
+        display: block;
+    }
+</style>
+<body>
+    <div class="container">
+        <input type="text" id="input">
+        <div class="notes" id="notes"></div>
+    </div>
+    <button id="clearlocalstorage">CLEAR LOCAL STORAGE</button>
+    <script>
+        let id;
+        window.onload = () =>
+        {
+            id = localStorage.getItem("id") == null ? 0 : Number(localStorage.getItem("id"));
+            localStorage.setItem("id", id);
+            for (let i = 0; i < localStorage.length; i++)
+            {
+                if (localStorage.key(i) == "id") continue;
+                let note = document.createElement("a");                
+
+                note.innerHTML = localStorage.getItem(localStorage.key(i)).split(',')[1];
+                note.style.cursor = "pointer";
+                note.style.display = "block";
+                notes.append(note);
+                note.onclick = () => displayInput(localStorage.key(i));
+            }
+        }
+
+        let input = document.getElementById("input");
+        let notes = document.getElementById("notes");
+
+        input.onkeydown = (e) =>
+        {
+            if (e.keyCode == 13)
+            {
+                let date = new Date();
+
+                let note = document.createElement("a");
+                note.innerHTML = date.toDateString();
+                note.style.cursor = "pointer";
+                note.style.display = "block";
+                notes.append(note);
+                localStorage.setItem(id, [input.value, date.toDateString()]);
+                let currentid = id;
+                note.onclick = () => displayInput(currentid);
+                localStorage.setItem("id", ++id);
+            }
+        }
+
+        function displayInput(id)
+        {
+            input.value = localStorage.getItem(id).split(",")[0];
+        }
+
+        document.getElementById("clearlocalstorage").onclick = () => localStorage.clear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="lb3.css">
+    <title>lb3</title>
+</head>
+<body id="body">
+    <div class="text" >
+        <span id="firstblock_firsttask" style="font-size: 50px; cursor: pointer;">UUU</span>
+    </div>
+
+    <div class="img">
+        <img src="/1200px-Go_gopher_favicon.svg.png" class="image" id="image" alt="">
+    </div>
+    <div class="third-task">
+        <p >1</p>
+        <p >2</p>
+        <p >3</p>
+    </div>
+
+    <div class="timer">
+        <span id="timer">
+
+        </span>
+    </div>
+
+    <div class="hint">
+        <div class="hint-head" data-tooltip="HINT" id="hint-head"></div>
+    </div>
+
+    <div class="colors">
+        <div class="red rect" data-color="red"></div>
+        <div class="green rect" data-color="green"></div>
+        <div class="blue rect" data-color="blue"></div>
+        <div class="pink rect" data-color="pink"></div>
+        <div class="black rect" data-color="black"></div>
+    </div>
+    <div class="rightrect"></div>
+    <script src="lb3.js"></script>
+    <script>
+        const disableselect = (e) =>
+        {  
+            return false  
+        }  
+        document.onselectstart = disableselect  
+        document.onmousedown = disableselect
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>lb3_3</title>
+</head>
+<style>
+</style>
+<body>
+    <div class="text" id="text">
+        <span>lkasdjglajglkdfjg</span>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, expedita quibusdam! Officia libero quisquam nam rerum veritatis? Ea doloribus sequi, 
+            soluta nihil tempora blanditiis! Blanditiis voluptates eum mollitia quisquam suscipit.</p>
+    </div>
+
+    <button id="plus_size">A +</button>
+    <button id="minus_size">A -</button>
+    <script>
+        let textcontainer = document.getElementById("text");
+        let currentFZ;
+        if (getCurrenFZ() == null) currentFZ = 60;
+        else currentFZ = Number(getCurrenFZ());
+
+        window.onload = ()=>
+        {
+            for (let i = 0; i < textcontainer.children.length; i++)
+            {
+                textcontainer.children[i].style.fontSize = currentFZ + "px";
+            }
+        }
+
+        document.getElementById("plus_size").onclick = () => 
+        {
+            currentFZ += 10;
+            for (let i = 0; i < textcontainer.children.length; i++)
+            {
+                textcontainer.children[i].style.fontSize = currentFZ + "px";
+            }
+
+            document.cookie = "currentFZ=" + currentFZ;
+        }
+
+        document.getElementById("minus_size").onclick = () => 
+        {
+            if (currentFZ - 10 <= 0) return;
+            currentFZ -= 10;
+            for (let i = 0; i < textcontainer.children.length; i++)
+            {
+                textcontainer.children[i].style.fontSize = currentFZ + "px";
+            }
+            document.cookie = "currentFZ=" + currentFZ;
+        }
+
+        function getCurrenFZ()
+        {
+            let allCookies = document.cookie;
+
+            let arr = allCookies.split("=");
+
+            if (arr[0] == "currentFZ") return arr[1];
+
+            return null;
+        }
+    </script>
+</body>
+</html>
